@@ -1,8 +1,14 @@
 <?php
     require_once('config/conexao.php');
     if ($_POST){ // quer dizer que esta vindo algo no POST
-        // vamos verificar se o ser clicou no botao salvar
-        if ($_POST['salvar'] == 'salvar'){
+        if ($_POST['acao'] == 'excluir'){
+            // aqui vai os paranaue de excluir
+            $sql = "delete from pix where id = :id";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindParam(':id',$_POST['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            header('location:index.php');
+        } elseif ($_POST['salvar'] == 'salvar'){ // vamos verificar se o ser clicou no botao salvar
             if (empty($_POST['id'])){
                 // VAI FAZER O INSERT
                 $sql = "INSERT INTO pix 
@@ -31,6 +37,7 @@
                     PDO::PARAM_STR);
                 $stmt->execute();
             }
+            header('Location: index.php');
         } else {
             echo "ACESSO INCORRETO!";
         }
