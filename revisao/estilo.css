@@ -1,0 +1,26 @@
+body{
+    background-color:#ff0000;
+    color: #fff;
+}
+
+button{
+    width: 75%;
+    margin: 10px;
+    text-align: center;
+    background-color: #0f0;
+}
+
+input{
+    padding: 15px;
+}
+
+.jocasta{
+    text-align: center;
+    border: solid 1px #000;
+    border-radius: 10px;
+}
+
+#tiburso{
+    text-align: right;
+    color: aquamarine;
+}
